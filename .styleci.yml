@@ -1,5 +1,5 @@
 php:
-  preset: laravel
+  preset: laravel.sqlite
   enabled:
     - alpha_ordered_imports
   disabled:

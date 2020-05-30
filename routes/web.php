@@ -18,3 +18,13 @@ Route::get('/', function () {
 Route::get('/address', function () {
     return view('address');
 });
+
+Auth::routes();
+Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::post('/login', 'Auth\LoginController@login');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/send','MailController@send');
+
+

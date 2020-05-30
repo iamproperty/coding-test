@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'pavdimittrova@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Laravel'),
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('pavdimittrova@gmail.com'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('mxkmvggtdtpyytkh'),
 
     /*
     |--------------------------------------------------------------------------

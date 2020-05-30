@@ -27,10 +27,10 @@ export default {
         ...data.attrs,
         type: 'text',
         value: upperCase(props.value),
+        placeholder: 'Enter postcode'
       },
       class: [
-        data.class,
-        data.staticClass,
+        'form-control-lg'
       ],
       on: {
         ...listeners,

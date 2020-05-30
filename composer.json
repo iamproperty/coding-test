@@ -1,14 +1,15 @@
 {
-    "name": "laravel/laravel",
+    "name": "database/laravel.sqlite/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": [
         "framework",
-        "laravel"
+      "database/laravel.sqlite"
     ],
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^1.0"
     },

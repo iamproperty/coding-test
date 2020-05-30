@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Login</title>
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Styles -->
     <style>
         html, body {
             background-color: #fff;
@@ -23,50 +20,26 @@
             margin: 0;
         }
 
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 40px;
-        }
-
         .nav-link {
             font-size: 20px;
+        }
+
+        .form-group {
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .btn-lg {
+            width: 40%;
+        }
+
+        .alert-danger {
+            font-size: 12px;
         }
     </style>
 </head>
@@ -89,25 +62,51 @@
                 @endauth
             @endif
         </ul>
+
     </div>
 </nav>
+<br>
+<h1 class="text-center"> Login Form </h1>
+<br>
+
 <body>
+@if(session('message'))
+    <div class="alert alert-danger text-center">
+        {{ session('message') }}
+    </div>
+@endif
 
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        <div class="title m-b-md">
-            Laravel
-        </div>
-
-        <div class="links">
-            <a href="https://laravel.com/docs">Docs</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://blog.laravel.com">Blog</a>
-            <a href="https://nova.laravel.com">Nova</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://vapor.laravel.com">Vapor</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
+<div class="container">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <form method="POST" action="{{route('login')}}">
+                @csrf
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control form-control-lg" id="email"
+                           placeholder="Email">
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control form-control-lg" id="password"
+                           placeholder="Password">
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    @if(session('password'))
+                        <div class="alert alert-danger text-center">
+                            {{ session('password') }}
+                        </div>
+                    @endif
+                </div>
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
