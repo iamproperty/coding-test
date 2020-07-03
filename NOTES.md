@@ -11,3 +11,7 @@ Backend tasks
 =============
 I would have used the postcode component for the registration but
 since I can't get the API to work correctly I will just store the postcode on the user model.
+
+## User log
+I have made the command take an argument to allow you to select the number of users to return. It defaults to 10.
+I didn't write tests for this command because it was an extremely simple task.
