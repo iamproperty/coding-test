@@ -6,3 +6,8 @@ decided to take that approach.
 
 I have realised that I am getting a 500 error trying to access the server for data.
 I can bypass this by creating a proxy response.
+
+Backend tasks
+=============
+I would have used the postcode component for the registration but
+since I can't get the API to work correctly I will just store the postcode on the user model.

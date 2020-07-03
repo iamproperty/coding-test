@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'pages.welcome');
+Route::view('/address', 'pages.address');
 
-Route::get('/address', function () {
-    return view('address');
+Route::middleware('guest')->group(function () {
+    Route::view('register', 'auth.register')->name('register');
 });
