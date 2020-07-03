@@ -38,7 +38,7 @@ class LatestUsers extends Command
      */
     public function handle()
     {
-        User::orderBy('created_at', 'desc')->take($this->argument('count'))->get()->each(function (User $user) {
+        User::orderBy('created_at', 'desc')->take($this->argument('count') ?? 10)->get()->each(function (User $user) {
             $date = $user->created_at->format('d/m/Y');
             $this->info("[{$user->id}:{$user->name}] {$user->postcode} | {$date}");
         });
