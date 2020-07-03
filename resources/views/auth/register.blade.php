@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register.store') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -65,7 +65,12 @@
                                 <label for="postcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="postcode" type="text" class="form-control" name="postcode" required autocomplete="postcode">
+                                    <input id="postcode" type="text" class="form-control @error('postcode') is-invalid @enderror" name="postcode" required autocomplete="postcode" value="{{ old('postcode') }}">
+                                    @error('postcode')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 

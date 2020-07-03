@@ -1,19 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\RegisterAction;
 
-Route::view('/', 'pages.welcome');
+Route::view('/', 'pages.welcome')->name('home');
 Route::view('/address', 'pages.address');
 
 Route::middleware('guest')->group(function () {
-    Route::view('register', 'auth.register')->name('register');
+    Route::view('register', 'auth.register')->name('register.form');
+    Route::post('register', RegisterAction::class)->name('register.store');
 });
