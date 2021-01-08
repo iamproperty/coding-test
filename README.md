@@ -1,6 +1,6 @@
 # Laravel Coding Test
 
-You should have been told which set of tasks to complete. If not please contact software@iamproperty.com.
+You should have been told which set of tasks to complete. If not please let your contact know.
 
 Feel free to do both sets if you want. 
 
