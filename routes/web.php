@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +19,14 @@ Route::get('/', function () {
 Route::get('/address', function () {
     return view('address');
 });
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/check_postcode/{postcode}', 'Auth\RegisterController@check_postcode')->name('check_postcode');
+
+// use App\Mail\WelcomeEMail;
+// use Illuminate\Support\Facades\Mail;
+// Route::get('/welcome/email', function () {
+//   //  return new WelcomeEMail();
+//     Mail::to('samaa.milano@hotmail.com')->send(new WelcomeEMail());
+// });

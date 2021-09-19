@@ -1,0 +1,6 @@
+the php artisan commend to list last registered users is "
+   php artisan recent-users:list
+by default it display last 10
+
+if you pass limit  it display according to your limit  as the following
+  php artisan recent-users:list 2
