@@ -2,11 +2,7 @@
   <div>
     <AddressLookup @select="select"/>
 
-    <pre v-if="selected">
-      <code>
-      <li v-if="value !== ''" v-for="(value, index) in selected" :key="index" class="list-group-item list-group-item-action list-group-item-secondary"><strong>{{index}}</strong> {{ value }}</li>
-      </code>
-      </pre>
+    <pre v-if="selected"><code>{{ selected | json }}</code></pre>
   </div>
 </template>
 
