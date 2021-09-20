@@ -167,11 +167,6 @@ return [
          */
 
         /*
-         * user Service Providers...
-         */
-        App\Providers\UserModelServiceProvider::class,
-
-         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,

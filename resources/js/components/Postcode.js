@@ -27,10 +27,8 @@ export default {
         ...data.attrs,
         type: 'text',
         value: upperCase(props.value),
-        placeholder:'Search Postcode'
       },
       class: [
-        'form-control',
         data.class,
         data.staticClass,
       ],

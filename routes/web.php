@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\UserController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +18,3 @@ Route::get('/', function () {
 Route::get('/address', function () {
     return view('address');
 });
-
-Route::get('/register', [UserController::class , 'index']);
-Route::post('/register', [UserController::class , 'store']);
