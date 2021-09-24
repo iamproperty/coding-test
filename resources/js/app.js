@@ -3,4 +3,8 @@ import App from './App.vue'
 
 require('./bootstrap');
 
-(new Vue(App)).$mount('#app')
+
+window.onload = function () {
+  var myAppElement = document.getElementById('app');
+  if(myAppElement)  (new Vue(App)).$mount('#app')
+}
