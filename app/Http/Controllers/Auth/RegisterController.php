@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use JustSteveKing\LaravelPostcodes\Rules\Postcode;
+use JustSteveKing\LaravelPostcodes\Service\PostcodeService;
 
 class RegisterController extends Controller
 {
@@ -50,6 +52,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'postcode' => ['required', 'string', 'max:25',
+                new Postcode(resolve(PostcodeService::class))],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -66,6 +70,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'postcode' => $data['postcode'],
             'password' => Hash::make($data['password']),
         ]);
     }
