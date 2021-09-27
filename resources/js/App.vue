@@ -1,8 +1,6 @@
 <template>
   <div>
     <AddressLookup @select="select"/>
-
-    <pre v-if="selected"><code>{{ selected | json }}</code></pre>
   </div>
 </template>
 
