@@ -8,7 +8,7 @@ Feel free to do both sets if you want.
 
 1. [x] Add a page for users to register
 2. [x] Use http://postcodes.io/ to ensure that users submit a valid postcode
-3. Send a welcome email when a user is registered
+3. [x] Send a welcome email when a user is registered
 4. Add an artisan command to list recently registered users
 
 ## Frontend

@@ -30,12 +30,12 @@ class StoringUserService
 
     /**
      * @param array $data
-     * @return bool
+     * @return User
      */
-    public function execute(array $data): bool
+    public function execute(array $data): User
     {
         return $this->users->create(
-                array_merge($data, ['password' => Hash::make(Arr::get($data, 'password'))])
-            ) instanceof User;
+            array_merge($data, ['password' => Hash::make(Arr::get($data, 'password'))])
+        );
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Requests\User\StoreUserRequest;
+use App\Notifications\WelcomeEmailNotification;
 use App\Services\users\StoringUserService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -34,7 +35,8 @@ class UserController
         StoringUserService $storingUserService
     ): RedirectResponse {
 
-        if ($storingUserService->execute($storeUserRequest->validated())) {
+        if ($user = $storingUserService->execute($storeUserRequest->validated())) {
+            $user->notify(new WelcomeEmailNotification);
             return back()->with('success', 'You registered successfully');
         }
 
