@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +20,6 @@ Route::get('/', function () {
 Route::get('/address', function () {
     return view('address');
 });
+
+Route::resource('users', 'User\UserController')
+    ->only('create', 'store');
