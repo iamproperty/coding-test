@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Postcode @postcode="loadAddresses($event)" />
+  <div class="container">
+    <Postcode @postcode="loadAddresses($event)" class="form-control mt-2" placeholder="Enter postcode"/>
 
     <ul v-show="addresses.length > 0 && show" class="list-group">
       <li v-for="address in addresses" class="list-group-item" @click="select(address)">{{ address.line_1 }}</li>

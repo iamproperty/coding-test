@@ -15,5 +15,5 @@ Feel free to do both sets if you want.
 
 Start the development server using `php artisan serve` and go to http://127.0.0.1:8000/address
 
-1. Make the address lookup component accessible
-2. Style it using bootstrap
+1. [x] Make the address lookup component accessible
+2. [x] Style it using bootstrap
