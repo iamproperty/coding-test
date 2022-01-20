@@ -10,7 +10,7 @@
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
             @error('name')
             <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                   aria-describedby="emailHelp" name="email">
+                   aria-describedby="emailHelp" name="email" value="{{ old('email') }}">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             @error('email')
             <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
         <div class="form-group">
             <label for="postcode">Postcode</label>
             <input type="text" class="form-control @error('postcode') is-invalid @enderror" id="postcode"
-                   name="postcode">
+                   name="postcode" value="{{ old('postcode') }}">
             @error('postcode')
             <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
