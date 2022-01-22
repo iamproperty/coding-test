@@ -33,12 +33,12 @@ class UsersList extends Command {
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return
      */
     public function handle() {
-        $headers = ['Name', 'Email', 'Postcode'];
         $data = User::get(['name', 'email', 'postcode'])->toArray();
         if (count($data)) {
+            $headers = ['Name', 'Email', 'Postcode'];
             $this->table($headers, $data);
             return;
         }

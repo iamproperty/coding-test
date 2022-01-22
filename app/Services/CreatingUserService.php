@@ -14,6 +14,10 @@ class CreatingUserService {
      */
     private $repo = null;
 
+    /**
+     * 
+     * @param UsersRepositories $repo
+     */
     public function __construct(UsersRepositories $repo) {
         $this->repo = $repo;
     }
