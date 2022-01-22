@@ -16,9 +16,10 @@ class PostCode implements Rule {
     public function passes($attribute, $value) {
         $response = guzzleGet(
                 ['Content-Type' => 'application/json'],
-                getenv('POST_CODE_CHECK_URL') . $value
+                getenv('POST_CODE_CHECK_URL') . $value . '/validate'
         );
-        return $response['status'];
+
+        return $response['status'] ? $response['response']['result'] : false;
     }
 
     /**
