@@ -2,19 +2,19 @@
 
 namespace App\Observers;
 
-use App\User;
+use App\Models\User;
+use App\Notifications\WelcomingEmail;
 
-class UserObserver
-{
+class UserObserver {
+
     /**
      * Handle the user "created" event.
      *
      * @param  \App\User  $user
      * @return void
      */
-    public function created(User $user)
-    {
-        //
+    public function created(User $user) {
+        $user->notify(new WelcomingEmail);
     }
 
     /**
@@ -23,8 +23,7 @@ class UserObserver
      * @param  \App\User  $user
      * @return void
      */
-    public function updated(User $user)
-    {
+    public function updated(User $user) {
         //
     }
 
@@ -34,8 +33,7 @@ class UserObserver
      * @param  \App\User  $user
      * @return void
      */
-    public function deleted(User $user)
-    {
+    public function deleted(User $user) {
         //
     }
 
@@ -45,8 +43,7 @@ class UserObserver
      * @param  \App\User  $user
      * @return void
      */
-    public function restored(User $user)
-    {
+    public function restored(User $user) {
         //
     }
 
@@ -56,8 +53,8 @@ class UserObserver
      * @param  \App\User  $user
      * @return void
      */
-    public function forceDeleted(User $user)
-    {
+    public function forceDeleted(User $user) {
         //
     }
+
 }

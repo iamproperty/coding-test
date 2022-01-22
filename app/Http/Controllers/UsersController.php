@@ -28,12 +28,10 @@ class UsersController extends Controller {
             CreatingUserService $service
     ) {
         $user_saved = $service->execute($request->validated());
-        if($user_saved){
-            
+        if ($user_saved) {
+            return back()->with('success', 'Your account has been added!');
         }
-        
-        
-        
+        return back()->with('error', 'Something went wrong, please try again later!');
     }
 
 }
