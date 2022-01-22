@@ -4,17 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class PostCode implements Rule
-{
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+class PostCode implements Rule {
 
     /**
      * Determine if the validation rule passes.
@@ -23,9 +13,12 @@ class PostCode implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
-    {
-        //
+    public function passes($attribute, $value) {
+        $response = guzzleGet(
+                ['Content-Type' => 'application/json'],
+                getenv('POST_CODE_CHECK_URL') . $value
+        );
+        return $response['status'];
     }
 
     /**
@@ -33,8 +26,8 @@ class PostCode implements Rule
      *
      * @return string
      */
-    public function message()
-    {
-        return 'The validation error message.';
+    public function message() {
+        return 'Invalid Postcode';
     }
+
 }

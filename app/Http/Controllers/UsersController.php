@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoringUserRequest;
+use App\Services\CreatingUserService;
 
 class UsersController extends Controller {
 
@@ -18,11 +19,21 @@ class UsersController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoringUserRequestRequest  $request
+     * @param  CreatingUserService  $service
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        dd($request);
+    public function store(
+            StoringUserRequest $request,
+            CreatingUserService $service
+    ) {
+        $user_saved = $service->execute($request->validated());
+        if($user_saved){
+            
+        }
+        
+        
+        
     }
 
 }

@@ -28,5 +28,9 @@ class BaseRepository {
     public function all() {
         return $this->model->all();
     }
+    
+    public function create(array $data)  {
+        return $this->model->create($data);
+    }
 
 }
