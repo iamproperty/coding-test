@@ -39,7 +39,6 @@ class WelcomingEmail extends Notification {
     public function toMail($notifiable) {
         return (new MailMessage)
                         ->line('Welcome ' . $notifiable->name)
-                        ->action('Hello',url('/'))
                         ->line('Thank you for using our application!');
     }
 
