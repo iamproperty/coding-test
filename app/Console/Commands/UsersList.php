@@ -33,16 +33,17 @@ class UsersList extends Command {
     /**
      * Execute the console command.
      *
-     * @return
+     * @return int
      */
     public function handle() {
         $data = User::get(['name', 'email', 'postcode'])->toArray();
         if (count($data)) {
             $headers = ['Name', 'Email', 'Postcode'];
             $this->table($headers, $data);
-            return;
+        } else {
+            $this->info("No users yet");
         }
-        $this->info("No users yet");
+        return 0;
     }
 
 }
