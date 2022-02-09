@@ -31,8 +31,8 @@ class UserController extends Controller
         $user_saved = $service->execute($request->all());
 
         if ($user_saved) {
-            return redirect()->back()->with('success', 'Your account has been added!');
+            return redirect()->back()->with('success', __('messages.user.stored'));
         }
-        return redirect()->back()->with('error', 'Something went wrong, please try again later!');
+        return redirect()->back()->with('error', __('messages.user.notStored'));
     }
 }
