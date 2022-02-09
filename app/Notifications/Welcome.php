@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
@@ -18,8 +18,8 @@ class Welcome extends Notification implements ShouldQueue
 
     /**
      * Create a new notification instance.
-     *
-     * @return void
+     * Welcome constructor.
+     * @param User $user
      */
     public function __construct(User $user)
     {
