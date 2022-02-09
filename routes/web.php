@@ -18,3 +18,8 @@ Route::get('/', function () {
 Route::get('/address', function () {
     return view('address');
 });
+
+/**
+ * Users
+ */
+require 'web/users.php';
