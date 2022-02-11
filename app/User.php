@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\WelcomeNewUserEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -35,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        // Register model created event
+        static::created(function (User $user) {
+            $user->notify(new WelcomeNewUserEmail());
+        });
+    }
 }
