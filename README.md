@@ -1,19 +1,19 @@
 # Laravel Coding Test
+Please follow the following steps to start using the application:
 
-You should have been told which set of tasks to complete. If not please let your contact know.
+1. run `composer install`
+2. Copy .env.example to .env
+3. Setup the database and mail configurations at .env file
+4. Run `php artisan migrate`
+5. Run `php artisan serve`
+6. Access user register page http://localhost:8000/users/create
 
-Feel free to do both sets if you want. 
-
-## Backend
+## Backend Tasks
 
 1. Add a page for users to register
 2. Use http://postcodes.io/ to ensure that users submit a valid postcode
 3. Send a welcome email when a user is registered
 4. Add an artisan command to list recently registered users
-
-## Frontend
-
-Start the development server using `php artisan serve` and go to http://127.0.0.1:8000/address
-
-1. Make the address lookup component accessible
-2. Style it using bootstrap
+    - Command `php artisan users:latest`
+    - You can pass optional argument for command to get the desired number of users `php artisan users:latest 3`.
+    - If no argument passed to the command it will display the default count which is `10`.
