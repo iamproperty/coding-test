@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +19,9 @@ Route::get('/', function () {
 
 Route::get('/address', function () {
     return view('address');
+});
+
+Route::prefix('users')->name('users.')->group(function($router){
+    $router->get('create', [UserController::class, 'create'])->name('create');
+    $router->post('/', [UserController::class, 'store'])->name('store');
 });
