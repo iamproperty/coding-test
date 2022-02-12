@@ -30,4 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'postcode' =>[
+        'validate_url' => env('POSTCODE_VALIDATE_URL', 'http://api.postcodes.io/postcodes/:postcode/validate'),
+    ]
 ];
