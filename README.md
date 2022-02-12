@@ -3,10 +3,11 @@ Please follow the following steps to start using the application:
 
 1. run `composer install`
 2. Copy .env.example to .env
-3. Setup the database and mail configurations at .env file
-4. Run `php artisan migrate`
-5. Run `php artisan serve`
-6. Access user register page http://localhost:8000/users/create
+3. Run `php artisan key:generate`
+4. Setup the database and mail configurations at .env file
+5. Run `php artisan migrate`
+6. Run `php artisan serve`
+7. Access user register page http://localhost:8000/users/create
 
 ## Backend Tasks
 
