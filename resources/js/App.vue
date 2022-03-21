@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AddressLookup @select="select"/>
+    <register></register>
 
     <pre v-if="selected"><code>{{ selected | json }}</code></pre>
   </div>
@@ -8,6 +8,7 @@
 
 <script>
 import AddressLookup from './components/AddressLookup'
+import Register from "./components/Register";
 
 export default {
   name: 'App',
@@ -25,6 +26,7 @@ export default {
     json: v => JSON.stringify(v, null, 4)
   },
   components: {
+    Register,
     AddressLookup
   }
 }

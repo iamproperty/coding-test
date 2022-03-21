@@ -2,9 +2,12 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\Types\Null_;
 
 class User extends Authenticatable
 {
@@ -16,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'postcode'
     ];
 
     /**
@@ -28,6 +31,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -36,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function validate(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'postcode' => 'required|string|min:4',
+            'password' => 'required|string|min:8',
+        ]);
+        if ($validator->fails()) {
+            return ['errors' => $validator->errors()];
+        } else {
+            return null;
+        }
+    }
 }
