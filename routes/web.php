@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +19,8 @@ Route::get('/', function () {
 Route::get('/address', function () {
     return view('address');
 });
+
+Route::get('/register', function () {
+    return view('register');
+});
+Route::post('/register', [UserController::class, 'create']);
