@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Contracts;
+namespace App\Repositories;
 
+use App\Contracts\IRepository;
 use Exception;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Builder;
