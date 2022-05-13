@@ -42,4 +42,27 @@ class AuthService
             return redirect()->back();
         }
     }
+
+    public function login(array $data)
+    {
+        try {
+            if (Auth::guard()->attempt($data)) {
+                session()->regenerate();
+
+                flashSuccessSession('You logged successfully!');
+
+                return redirect()->intended('/home');
+            }
+
+            flashErrorSession('Your credentials is not correct!');
+
+            return redirect()->back();
+        } catch (\Exception $exception) {
+            Log::error($exception);
+
+            flashErrorSession('Something went wrong!');
+
+            return redirect()->back();
+        }
+    }
 }

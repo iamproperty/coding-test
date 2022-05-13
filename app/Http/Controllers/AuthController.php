@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegistrationRequest;
 use App\Services\AuthService;
 
@@ -32,8 +33,8 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login()
+    public function login(UserLoginRequest $request)
     {
-        dd('login');
+        return $this->authService->login($request->validated());
     }
 }
