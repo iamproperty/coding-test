@@ -19,7 +19,7 @@ class ListRecentlyRegisteredUsers extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'List recently registered users';
 
     /**
      * Create a new command instance.
