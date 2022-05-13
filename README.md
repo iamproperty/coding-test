@@ -40,3 +40,9 @@ $ php artisan serve
 ```
 
 The application will be served from [`127.0.0.1:8080`](http://127.0.0.1:8000/).
+
+#### For sending emails you should run
+
+```shell
+$ php artisan queue:work
+```
