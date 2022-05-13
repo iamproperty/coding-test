@@ -21,10 +21,11 @@ class PostCode implements Rule
      * Create a new rule instance.
      *
      * @return void
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function __construct(PostCodeService $postCodeService)
+    public function __construct()
     {
-        $this->postCodeService = $postCodeService;
+        $this->postCodeService = app()->make(PostCodeService::class);
     }
 
     /**
