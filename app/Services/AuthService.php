@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\UserRepository;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -64,5 +65,16 @@ class AuthService
 
             return redirect()->back();
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard()->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
