@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'postCodeApi' => [
+        'lookup'   => env('POSTCODE_API') . '/{postcode}',
+        'validate' => env('POSTCODE_API') . '/{postcode}/validate',
+    ],
+
 ];
