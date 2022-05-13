@@ -51,7 +51,7 @@ class AuthService
 
                 flashSuccessSession('You logged successfully!');
 
-                return redirect()->intended('/home');
+                return redirect('/home');
             }
 
             flashErrorSession('Your credentials is not correct!');
