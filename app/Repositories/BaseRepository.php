@@ -180,4 +180,17 @@ abstract class BaseRepository implements IRepository
 
         return $entity->delete();
     }
+
+    /**
+     * @param int $count
+     * @return Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function latestUsers(int $count = 10)
+    {
+        $this->newQuery();
+
+        return $this->query->latest()->limit($count)->get(
+            ['id', 'name', 'email', 'postcode', 'created_at']
+        );
+    }
 }
