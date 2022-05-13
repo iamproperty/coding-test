@@ -1,19 +1,42 @@
-# Laravel Coding Test
+## Coding Test
 
-You should have been told which set of tasks to complete. If not please let your contact know.
+### Includes
 
-Feel free to do both sets if you want. 
+* Laravel 7
+* Vue 2
 
-## Backend
+### Prerequisites
 
-1. Add a page for users to register
-2. Use http://postcodes.io/ to ensure that users submit a valid postcode
-3. Send a welcome email when a user is registered
-4. Add an artisan command to list recently registered users
+Before getting started you should have the following installed and running:
 
-## Frontend
+- [X] PHP >= 7.2 - [instructions](https://www.php.net/downloads.php)
+- [X] Composer - [instructions](https://getcomposer.org/download/)
+- [X] NPM - [instructions](https://docs.npmjs.com/getting-started/installing-node)
 
-Start the development server using `php artisan serve` and go to http://127.0.0.1:8000/address
+### Setup
 
-1. Make the address lookup component accessible
-2. Style it using bootstrap
+##### Clone the project
+```shell
+$ git clone https://github.com/khalidzeiter/coding-test.git
+$ cd coding-test
+```
+
+##### Setup backend app
+```shell
+$ composer install
+$ cp .env.example .env   # Then update .env configurations
+$ php artisan migrate
+```
+##### Setup frontend app
+```shell
+$ npm install
+$ npm run dev
+```
+
+### Running 
+
+```shell
+$ php artisan serve
+```
+
+The application will be served from [`127.0.0.1:8080`](http://127.0.0.1:8000/).
