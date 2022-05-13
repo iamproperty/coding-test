@@ -39,7 +39,9 @@ class PostCode implements Rule
     {
         $this->attribute = $attribute;
 
-        dd($this->postCodeService->validate($value));
+        $validation = $this->postCodeService->validate($value);
+
+        return $validation->status == 200 && $validation->result == true;
     }
 
     /**
