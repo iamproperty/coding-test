@@ -2,29 +2,16 @@
 
 namespace App\Notifications;
 
-use App\User;
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 class Welcome extends Notification implements ShouldQueue
 {
     use Queueable;
-
-    /**
-     * @var User
-     */
-    private $user;
-
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
 
     /**
      * Get the notification's delivery channels.
@@ -32,21 +19,25 @@ class Welcome extends Notification implements ShouldQueue
      * @param  mixed  $notifiable
      * @return array
      */
-    public function via($notifiable)
+    public function via($notifiable): array
     {
-        return ['database'];
+        return ['mail'];
     }
 
     /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return array
+     * @return MailMessage|void
      */
-    public function toArray($notifiable)
+    public function  toMail($notifiable)
     {
-        return [
-            'name' => $this->user->name,
-        ];
+        try {
+            return (new MailMessage)
+                ->line('Welcome ' . $notifiable->name)
+                ->line('Thank you for using our application!');
+        } catch (Exception  $ex) {
+            Log::error('Cannot send welcome email');
+        }
     }
 }
