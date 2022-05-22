@@ -11,10 +11,21 @@
 |
 */
 
+
+
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/address', function () {
     return view('address');
+});
+
+
+Route::group(['middleware'=>['auth:web']],function (){
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
 });
