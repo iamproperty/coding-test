@@ -29,6 +29,7 @@ export default {
         value: upperCase(props.value),
       },
       class: [
+        'form-control',
         data.class,
         data.staticClass,
       ],

@@ -29,5 +29,7 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-
+    'post_code_api' => [
+        'validate_url'  => env('POST_CODE_SERVICE_URL', 'http://api.postcodes.io/postcodes/:postcode/validate'),
+    ],
 ];
