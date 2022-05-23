@@ -2,8 +2,18 @@
   <div>
     <Postcode @postcode="loadAddresses($event)" />
 
-    <ul v-show="addresses.length > 0 && show" class="list-group">
-      <li v-for="address in addresses" class="list-group-item" @click="select(address)">{{ address.line_1 }}</li>
+    <br>
+    <ul class="list-group" v-show="addresses.length > 0" id="addressGroup">
+      <li v-for="(address, index) in addresses"   class="list-group-item bg-light">
+        <button class="btn   bg-dark text-white w-100 text-left"  data-toggle="collapse" :data-target="'#collapse_index_'+index" aria-expanded="false" :aria-controls="'collapse_index_'+index">
+          <strong>{{ address.line_1 }}</strong>
+        </button>
+        <div :id="'collapse_index_'+index" class="collapse " data-parent="#addressGroup">
+          <div class="row">
+            <div v-for="(value, ind) in address" :key="ind"  v-if="value" class=" col-4 mt-2 "><strong>{{ind}}:</strong> {{ value  }} </div>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </template>

@@ -14,7 +14,7 @@ class UsersList extends Command
      *
      * @var string
      */
-    protected $signature = 'users:list  {count?}';
+    protected $signature = 'users:list  {limit?}';
 
     /**
      * The console command description.
@@ -41,7 +41,7 @@ class UsersList extends Command
     public function handle(): int
     {
 
-        $data = User::latest()->limit($this->argument('count'))->get(self::TABLE_COLUMNS)->toArray();
+        $data = User::latest()->limit($this->argument('limit'))->get(self::TABLE_COLUMNS)->toArray();
         if (count($data)) {
              $this->table(array_map('ucfirst', self::TABLE_COLUMNS), $data);
         } else {
