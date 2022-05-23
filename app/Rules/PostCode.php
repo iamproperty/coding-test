@@ -24,7 +24,6 @@ class PostCode implements Rule {
             $url = Str::replaceFirst(':postcode', $value, Config::get('services.post_code_api.validate_url'));
             $response = Http::get($url);
             if ($response->ok()) {
-                return true;
                 return $response->json()['result'];
             }
         } catch (Exception $exc) {
@@ -42,7 +41,8 @@ class PostCode implements Rule {
      *
      * @return string
      */
-    public function message() {
+    public function message(): string
+    {
         return 'Invalid Postcode';
     }
 
